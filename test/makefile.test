@@ -1,0 +1,18 @@
+CC=g++ 
+
+LIBS=gtest armadillo
+LIBS_INC=
+LIBS_DIR=
+
+TSK=tsk
+SRC=test.t.cpp
+
+PTHREAD_ENABLED=-pthread
+
+CPPFLAGS=$(LIBS_INC:%=-I%) $(LIBS:%=-l%) $(LIBS_DIR:%=-L%) -g -Wall -std=c++11 $(PTHREAD_ENABLED)
+
+all:
+	$(CC) $(SRC) $(CPPFLAGS) -o $(TSK) 
+
+clean:
+	rm -f *.o $(TSK)
